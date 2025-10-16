@@ -1,0 +1,13 @@
+Algorithm: Query degrees via singleton cuts, then pairwise cuts. 
+For vertex i, query cut({i}) = deg(i). 
+For pair {i,j}, query cut({i,j}) = deg(i) + deg(j) − 2·adj[i][j]. 
+Solve for adj[i][j] = (deg(i) + deg(j) − cut) / 2 (or more simply, if deg(i) + deg(j) != cut({i, j}), then edge[i][j] is present).
+Output the adjacency matrix.
+
+Correctness: Singleton cut gives degree. 
+Pairwise cut formula accounts for shared edges (subtracted twice if present). 
+The adjacency matrix is reconstructed exactly.
+
+Complexity: n + n(n−1)/2 = O(n²) queries (1275 for n=50 ≤ 3000). Computation O(n²).
+
+Edge cases: n=2 (queries: two singletons, one pair). Graph with no edges (all cuts = degree = 0).

@@ -1,0 +1,11 @@
+Algorithm: Interactive strategy forcing moves to multiples of 3. 
+Start with 2. If opponent moves to a multiple of 3, break by moving to x+1.
+Otherwise, move to the next multiple of 3: if x ≡ 1 mod 3, output x+2; if x ≡ 2 mod 3, output x+1. Win by reaching 99.
+
+Correctness: After breaking initial multiples, the strategy ensures the player always moves to a multiple of 3 (e.g., 6, 9, ..., 99).
+The oponnent then cannot reach a multiple of 3, since he can only increase by 1 or 2.
+Since 99 is a multiple, and the opponent cannot reach 99 earlier (e.g., from 96 they can only reach 97/98), the player wins.
+
+Complexity: O(1) per move. Total moves ~64 (up to 99).
+
+Edge cases: Opponent moving to 98 (player responds with 99). Opponent cannot land on 99 before the player.

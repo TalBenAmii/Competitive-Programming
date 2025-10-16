@@ -1,0 +1,14 @@
+Algorithm: Greedy interval scheduling with multiple classrooms. 
+Activities are sorted by end time. 
+A multiset tracks the last end time of activities assigned to each classroom. 
+For each activity, the algorithm checks if any classroom is available (i.e., its last end time is ≤ the current activity's start time) using a lower_bound query. 
+If available, the classroom's end time is updated; otherwise, the activity is skipped.
+
+Correctness: Sorting by end time ensures optimal activity selection (maximizing count). 
+The multiset efficiently finds the latest-ending classroom that can accommodate the current activity, maintaining feasibility and minimizing dead time. 
+The algorithm guarantees no overlaps in the same classroom.
+
+Complexity: O(n log n) for sorting, O((n+k) log k) for processing (each multiset operation is O(log k)), overall O(n log n) since k ≤ n.
+
+Edge cases: Handles k=1 (single classroom), duplicate end times (via multiset), and non-overlapping activities. 
+Large n (200,000) and times (10^7) are efficient.

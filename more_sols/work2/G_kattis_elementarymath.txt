@@ -1,0 +1,15 @@
+Algorithm: Bipartite matching via max flow (Edmonds-Karp). 
+Problems form the left partition; distinct results (from a+b, a−b, a×b) form the right. 
+Edges connect problems to their possible results. A super-source connects to problems (capacity 1), and results connect to a super-sink (capacity 1). 
+If max flow equals n, a valid assignment exists; edges with flow indicate chosen operations.
+
+Correctness: Flow constraints ensure each problem uses one operation and results are distinct. 
+Augmenting paths assign operations without conflicts. 
+"impossible" is output if flow < n (meaning less then n distinct solutions could be matched to the problem)
+
+Complexity: O(n) nodes (problems + results + source/sink), O(n) edges. 
+As an implementation of Ford-Fulkerson, Edmonds-Karp runs in O(|f|·(V+E)) = O(n·n) = O(n²) (|f|=n, V=O(n), E=O(n)), feasible for n≤2500.
+
+Edge cases: Duplicate results per problem (deduped edges). Negative numbers handled. Large results (10^12) stored as long long.
+
+External algorithms: Edmonds-Karp from provided code by Nofar Carmeli.

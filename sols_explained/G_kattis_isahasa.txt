@@ -1,0 +1,27 @@
+1.
+יש קשר טרנזטיבי ל is-a בשרשרת קשרים של is-a
+וקשר טרנזטיבי ל has-a בשרשרת קשרים has-a,is-a כאשר בשרשרת חייב להיות נוכח לפחות קשר has-a אחד.
+נרצה לבנות גרף בו כל צומת הוא אובייקט וקשתות הן קשרים בין האובייקטים. 
+נשמור במטריצת סמיכויות את הקשתות בין הצמתים וסוגן.
+נריץ Floyd-Warshall ובמקום מרחקים נשמור את הקשרים בין הצמתים בגרף
+2.
+Floyd-Warshall בוחן בין כל זוג צמתים את כל צמתי הביניים שכל המסלולים בינהם בגרף עוברים דרכם.
+עבור צומת k הוא בוחן את המסלולים מ u ל k שמורכבים מהצמתים עד k-1 והקשרים (שבנויים מהקשתות) בין הצמתים שעל המסלול כבר ידועים כי נבדקו באיטרציות שלפני. 
+באותו אופן עבור מסלולים מ k עד v.
+באופן איטרטיבי מעדכנים כך את הקשרים בין כל זוג צמתים. העדכון הוא עם התנאים:
+if(isA[u][k] && isA[k][v]) isA[u][v]=true; //is-a relation between u-k, is-a relation between k-v
+if(hasA[u][k] && isA[k][v]) hasA[u][v]=true; // has-a relation between u-k, is-a relation between k-v
+if(isA[u][k] && hasA[k][v]) hasA[u][v]=true; // is-a relation between u-k, has-a relation between k-v
+if(hasA[u][k] && hasA[k][v]) hasA[u][v]=true; // has-a relation between u-k, has-a relation between k-v
+3.
+נתון שיש לכל היותר 500 אובייקטים (צמתים) שונים, N=500
+T - כמות הטסטים
+זמן:
+O(T*(500^3))=O(T*(1.25*10^8))=O(T*(N^3))
+מקום: 
+O(N^2)
+האלגוריתם cache friendly וסופק זמן טיפה ארוך מהרגיל לכן עבר
+4.
+קשר is-a רפלקסיבי לכן נבנה לכל צומת קשת עצמית מסוג is-a
+5.
+מהספר CP 4 בפרק: 4.5.3 Other Applications עבור אלגוריתם Floyd-Warshall שפותר בעיות מסוג Transitive Closure 

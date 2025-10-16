@@ -1,0 +1,11 @@
+1. 
+נעזר בקשר הרקורסיבי:
+a^n+b^n= p*(a^(n-1)+b^(n-1))-q*((n-2)+b^(n-2))
+נמיר אותו לייצוג כפל מטריצות ונבצע fast exponentiation 
+2.
+נכונות נובעת ישירות מנכונות הקשר הרקורסיבי
+3.
+time: O(C*log(N)) fast expo with 2x2 matrices
+space: O(1) - 2x2 matrix in memory
+C- number of test cases
+N - largest exponent n

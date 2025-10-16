@@ -1,0 +1,8 @@
+1. 
+בניית פתרונות בעזרת backtracking על שלושה סוגי תווים : L, vowels, consonants. בסוף הבנייה מבצעים בדיקת חוקיות, אם חוקי מוסיפים את כמות הקומבינציות (כמות אותיות מהסוג הנבחר) שבחירה זו הוסיפה.
+2.
+חיפוש אקזוסטיבי על כל הפתרונות ובדיקת חוקיות מבטיח נכונות
+3.
+time: O((3^C)*S)
+space: O(C*S) - depth of C calls with string sized S copied each call
+C - chars to complete (max is 10), S- string size
